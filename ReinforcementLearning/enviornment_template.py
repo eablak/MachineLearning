@@ -52,6 +52,32 @@ class Player(pygame.sprite.Sprite):
     def getCoordinates(self):
         return (self.rect.x, self.rect.y)
 
+
+class Enemy(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((10,10))
+        self.image.fill(RED)
+        self.rect = self.image.get_rect()
+        
+        self.rect.x = random.randrange(0,WIDTH - self.rect.width)
+        self.rect.y = random.randrange(2,6)
+
+        self.speedx = 0
+        self.speedy = 3
+
+    def update(self):
+        self.rect.x += self.speedx
+        self.rect.y += self.speedy
+        
+        if self.rect.top > HEIGHT + 10:
+            self.rect.x = random.randrange(0, WIDTH - self.rect.width)
+            self.rect.y = random.randrange(2,6)
+            self.speedy = 3
+            
+    def getCoordinates(self):
+        return (self.rect.x, self.rect.y)
+
 # initalize pygame and create window
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -61,7 +87,11 @@ clock = pygame.time.Clock()
 # sprite
 all_sprite = pygame.sprite.Group()
 player = Player()
+m1 = Enemy()
+m2 = Enemy()
 all_sprite.add(player)
+all_sprite.add(m1)
+all_sprite.add(m2)
 
 # game loop
 running = True
