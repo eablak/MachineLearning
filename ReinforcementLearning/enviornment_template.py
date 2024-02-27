@@ -28,6 +28,8 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.Surface((20,20))
         self.image.fill(BLUE)
         self.rect = self.image.get_rect()
+        self.radius = 10
+        pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
         self.rect.centerx = WIDTH/2
         self.rect.bottom = HEIGHT - 1
         self.speed_x = 0
@@ -60,6 +62,9 @@ class Enemy(pygame.sprite.Sprite):
         self.image.fill(RED)
         self.rect = self.image.get_rect()
         
+        self.radius = 5
+        pygame.draw.circle(self.image, WHITE, self.rect.center, self.radius)
+        
         self.rect.x = random.randrange(0,WIDTH - self.rect.width)
         self.rect.y = random.randrange(2,6)
 
@@ -86,12 +91,17 @@ clock = pygame.time.Clock()
 
 # sprite
 all_sprite = pygame.sprite.Group()
+enemy = pygame.sprite.Group()
+
 player = Player()
 m1 = Enemy()
 m2 = Enemy()
-all_sprite.add(player)
+
+enemy.add(m1)
+enemy.add(m2)
 all_sprite.add(m1)
 all_sprite.add(m2)
+all_sprite.add(player)
 
 # game loop
 running = True
@@ -106,6 +116,13 @@ while running:
             
     # update
     all_sprite.update()
+    
+    # collide
+    hits = pygame.sprite.spritecollide(player, enemy, False, pygame.sprite.collide_circle)
+    
+    if hits:
+        running = False
+        print("Game Over")
     
     # draw / render (show)
     screen.fill(GREEN)
