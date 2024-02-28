@@ -68,7 +68,42 @@ def updatePaddle(switch, action, paddleYPos, ballYPos):
         if paddleYPos > GAME_HEIGHT - PADDLE_HEIGHT:
             paddleYPos = GAME_HEIGHT - PADDLE_HEIGHT  
     return paddleYPos
+
+
+def updateBall(paddle1YPos, paddle2YPos, ballXPos, ballYPos, ballXDirection, ballYDirection, DeltaFrameTime):
     
+    dft = 7.5
+
+    ballXPos = ballXPos + ballXDirection*BALL_X_SPEED*dft
+    ballYPos = ballYPos + ballYDirection*BALL_Y_SPEED*dft
+
+    score = -0.05
+    # top ekran dışına çıkmasın / top çarpınca dönsün
+    # agent
+    if (ballXPos <= PADDLE_BUFFER + PADDLE_WIDTH) and (ballYPos + BALL_HEIGHT >= paddle1YPos) and (ballYPos <= paddle1YPos + PADDLE_HEIGHT) and (ballXDirection == -1):
+        ballXDirection = 1
+        score = 10
+    elif (ballXPos <= 0):
+        ballXDirection = 1
+        score = -10   
+        return [score, ballXPos, ballYPos, ballXDirection, ballYDirection]
+    
+    
+    if (ballXPos >= WINDOW_WIDTH - PADDLE_WIDTH - PADDLE_BUFFER) and (ballYPos + BALL_HEIGHT >= paddle2YPos) and (ballYPos <= paddle2YPos + PADDLE_HEIGHT) and (ballXDirection == 1):
+        ballXDirection = -1
+    elif ballXPos >= WINDOW_WIDTH - BALL_WIDTH:
+        ballXDirection = -1
+        return [score, ballXPos, ballYPos, ballXDirection, ballYDirection]
+    
+    if ballYPos <= 0:
+        ballYPos = 0
+        ballYDirection = 1
+    elif ballYPos >= GAME_HEIGHT - BALL_HEIGHT:
+        ballYPos = GAME_HEIGHT - BALL_HEIGHT
+        ballYDirection = -1
+        return [score, ballXPos, ballYPos, ballXDirection, ballYDirection]
+
+
 class PongGame:
     def __init__(self):
         pygame.init()
@@ -109,49 +144,22 @@ class PongGame:
         screen.fill(BLACK)
         
         self.paddle1YPos = updatePaddle("left", action, self.paddle1YPos, self.ballYPos)
-        draw.paddle("left", self.paddle1YPos)
+        drawPaddle("left", self.paddle1YPos)
         
         self.paddle2YPos = updatePaddle("right", action, self.paddle2YPos, self.ballYPos)
-        draw.paddle("right", self.paddle2YPos)
-    
-pg = PongGame()
-pg.InitialDispilay()
+        drawPaddle("right", self.paddle2YPos)
+        
+        [score, self.ballXPos, self.ballYPos, self.ballXDirection, self.ballYDirection] = updateBall(self.paddle1YPos, self.paddle2YPos, self.ballXPos, self.ballYPos, self.ballXDirection, self.ballYDirection, DeltaFrameTime)
+        
+        drawBall(self.ballXPos, self.ballYPos)
 
+        if score > 0.5 or score < -0.5:
+            self.GScore = self.GScore*0.9 + 0.1*score
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ScreenImage = pygame.surfarray.array3d(pygame.display.get_surface())
+        pygame.display.flip()
+        
+        return [score, ScreenImage]
 
 
 
