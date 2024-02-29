@@ -160,7 +160,3 @@ class PongGame:
         pygame.display.flip()
         
         return [score, ScreenImage]
-
-
-
-
