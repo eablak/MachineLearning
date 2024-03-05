@@ -193,22 +193,23 @@ class PongGame:
         
         # önemli olan harekete göre sonuçlanan skor ve screenimage
         return [score, ScreenImage]
-    
+        
+        
         
 """
-Pong game 3 kisimda yazilir
+Pong game 3 kısımda yazılır
 1) ENV
 2) Action
-3) Bu ikisini çaliştiran kisim
+3) Bu ikisini çalıştıran kısım
     
     
 Burada önce pong game için env oluşturuyoruz. 
-init ile gerekli parametrelerimizi veriyoruz. init display ile paddle ve ball'u başlamasi 
-gereken yeri bulup draw methodlari ile onlari yerleştiriyoruz. playNextMove ile paddle ve 
-ball için update işlemleri gerçekleşiyor paddle için yukari aşaği ve sabit bunun return
- değeri olarak tabi yeni konumu. update ball için topun çarptiği yere göre yeni konumu döner. 
- aldiğimiz bu değerlerle tabikide sirasiyla draw ederiz. gelen değer içerisinde score olur ve
+init ile gerekli parametrelerimizi veriyoruz. init display ile paddle ve ball'u başlaması 
+gereken yeri bulup draw methodları ile onları yerleştiriyoruz. playNextMove ile paddle ve 
+ball için update işlemleri gerçekleşiyor paddle için yukarı aşağı ve sabit bunun return
+ değeri olarak tabi yeni konumu. update ball için topun çarptığı yere göre yeni konumu döner. 
+ aldığımız bu değerlerle tabikide sırasıyla draw ederiz. gelen değer içerisinde score olur ve
    oyunun score değerini güncelleriz . oyunu anlayabilmek için resimlere ihtiyaç var çünkü 
-   cnn olacak o yüzden screenimage tutariz ve next move ile gerçekleşen action'a göre score
+   cnn olacak o yüzden screenimage tutarız ve next move ile gerçekleşen action'a göre score
      ve image'leri döneriz.
 """

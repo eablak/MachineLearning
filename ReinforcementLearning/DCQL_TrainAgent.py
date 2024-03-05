@@ -6,7 +6,7 @@ Created on Wed Feb 28 15:07:18 2024
 """
 
 import sys
-sys.path.append("C:/Users/ESRA  ABLAK/Desktop/pongGame")
+sys.path.append("C:/Users/ESRA  ABLAK/Desktop/ml_github/ReinforcementLearning")
 
 import DCQL_Pong
 import DCQL_Agent
