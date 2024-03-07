@@ -1,4 +1,4 @@
-![alt text](1-3.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-3.png)
 
 ### Phonemes
 
