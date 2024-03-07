@@ -79,19 +79,29 @@ Ali ve Veli bugün dışarıya çıktılar. Onlar güzel bir gün geçirdiler. B
     - RNN
         
         Tekrarlayan Sinir Ağları, içerilerinde bilginin kalmasına izin veren döngülere sahiptir.
-        Sinir ağının bir parçası olan  A’nın bazı x_t girişlerini ve h_t çıkışlarını işlediğini görüyoruz. Döngü, bilgilerin bir adımdan diğerine aktarılmasına izin verir.
+        Sinir ağının bir parçası olan  A’nın bazı x_t girişlerini ve h_t çıkışlarını işlediğini görüyoruz.
+        Döngü, bilgilerin bir adımdan diğerine aktarılmasına izin verir.
         RNN, önceki kelimelerin bilgilerini bu bilgiyi kullanabilen ve işleyebilren bir sonraki ağa aktarır.
-        İlgili bilgiler ile ihtiyaç duyulan nokta arasındaki boşluk çok büyüdüğünde RNN’ler çok etkisiz hale gelir. Bunun nedeni, bilginin her adımda aktarılması ve zincir ne kadar uzun olursa, bilgilerin zincir boyunca kaybolma olasılığı o kadar yüksektir. Özel bir RNN türü olan LSTM, bu tür bir sorunu çözmeye çalışır.
+        İlgili bilgiler ile ihtiyaç duyulan nokta arasındaki boşluk çok büyüdüğünde RNN’ler çok etkisiz hale gelir. 
+        Bunun nedeni, bilginin her adımda aktarılması ve zincir ne kadar uzun olursa, bilgilerin zincir boyunca kaybolma olasılığı o kadar yüksektir.
+        Özel bir RNN türü olan LSTM, bu tür bir sorunu çözmeye çalışır.
 
     - Uzun-Kısa Süreli Bellek (LSTM)
         
-        RNN yeni bilgi eklendiğinde, bir işlev uygulayarak mevcut bilgiyi tamamen dönüştürür. Tüm bilgiler değiştirilir ve neyin önemli olup neyin olmadığı dikkate alınmaz. LSTM’ler, çarpma ve eklemelerle bilgilerde küçük değişiklikler yapar. LSTM’ler ile bilgi, hücre durumları olarak bilinen bir mekanizma aracılığıyla akar. Bu şekilde önemli ve çok önemli olmayan şeyleri seçerek hatırlayabilir veya unutabilir.
+        RNN yeni bilgi eklendiğinde, bir işlev uygulayarak mevcut bilgiyi tamamen dönüştürür. 
+        Tüm bilgiler değiştirilir ve neyin önemli olup neyin olmadığı dikkate alınmaz. 
+        LSTM’ler, çarpma ve eklemelerle bilgilerde küçük değişiklikler yapar. 
+        LSTM’ler ile bilgi, hücre durumları olarak bilinen bir mekanizma aracılığıyla akar. 
+        Bu şekilde önemli ve çok önemli olmayan şeyleri seçerek hatırlayabilir veya unutabilir.
         
-        Genel olarak RNN’lerinde olan sorun LSTM’de de olur, yani cümleler çok uzun olduğunda LSTM’ler hala çok iyi sonuç vermiyor. Bu problemlerden bazılarını çözmek için araştırmacılar, belirli kelimelere dikkat etmek için bir teknik geliştirdiler.
+        Genel olarak RNN’lerinde olan sorun LSTM’de de olur, yani cümleler çok uzun olduğunda LSTM’ler hala çok iyi sonuç vermiyor. 
+        Bu problemlerden bazılarını çözmek için araştırmacılar, belirli kelimelere dikkat etmek için bir teknik geliştirdiler.
         
         Sinir ağları, verilen bilgilerin bir alt kümesinin bir kısmına odaklanarak ***dikkati*** kullanarak bu aynı davranışı başarabilirler.
         
-        **Dikkat**, bir sinir ağında kullanılan bir tekniktir. RNN’ler için, yalnızca tüm cümleyi gizli bir durumda kodlamak yerine, her kelime, kod çözme aşamasına kadar tüm yol boyunca aktarılan karşılık gelen bir gizli duruma sahiptir. Ardından, gizli durumlar RNN’nin her adımında kodu çözmek için kullanılır. 
+        **Dikkat**, bir sinir ağında kullanılan bir tekniktir. 
+        RNN’ler için, yalnızca tüm cümleyi gizli bir durumda kodlamak yerine, her kelime, kod çözme aşamasına kadar tüm yol boyunca aktarılan karşılık gelen bir gizli duruma sahiptir. 
+        Ardından, gizli durumlar RNN’nin her adımında kodu çözmek için kullanılır. 
         
         Ancak tartıştığımız bazı problemler, **dikkat** kullanılarak RNN’ler ile hala çözülmedi**.**
 
@@ -100,8 +110,11 @@ Ali ve Veli bugün dışarıya çıktılar. Onlar güzel bir gün geçirdiler. B
         - Yerel bağımlılıkları kullanır.
         - Konumlar arasındaki mesafe logaritmiktir.
 
-        CNN’in paralel çalışabilmesinin nedeni, girişteki her kelimenin aynı anda işlenebilmesi ve çevrilecek önceki kelimelere bağlı olmamasıdır. Çıktı kelimesi ile bir CNN için herhangi bir girdi arasındaki mesafe log (N) sırasındadır. Bu, çıkıtdan girişe kadar üretilen ağacın yüklekliğinin boyutudur. 
-        CNN, cümleleri çevirirken bağımlılık sorununu çözme konusunda mutlaka yardımcı olmaz. Bu yüzden Transformers yaratıldı, her iki CNN’in dikkat ile birleşimidir.
+        CNN’in paralel çalışabilmesinin nedeni, girişteki her kelimenin aynı anda işlenebilmesi ve çevrilecek önceki kelimelere bağlı olmamasıdır. 
+        Çıktı kelimesi ile bir CNN için herhangi bir girdi arasındaki mesafe log (N) sırasındadır. 
+        Bu, çıkıtdan girişe kadar üretilen ağacın yüklekliğinin boyutudur. 
+        CNN, cümleleri çevirirken bağımlılık sorununu çözme konusunda mutlaka yardımcı olmaz. 
+        Bu yüzden Transformers yaratıldı, her iki CNN’in dikkat ile birleşimidir.
 
 Paralelleşme problemini çözmek için Transformelar, dikkat modelleri ile birlikte CNN kullanarak sorunu çözmeye çalışırlar. Transformer, hızı arttırmak için dikkati kullanan bir modeldir. Daha spesifik olarak, öz-ilgiyi (self-attention) kullanır.
 Dahili olarak, Transformer yukarıdaki önceki modellerle benzer bir mimariye sahiptir. Ancak Transformer, altı kodlayıcı ve altı kod çözücüden oluşur.
