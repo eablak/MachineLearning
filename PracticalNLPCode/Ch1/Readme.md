@@ -28,6 +28,7 @@ Context is how various parts in a language come together to convey a particular 
 ### Machine Learning, Deep Learning, and NLP: An Overview
 
 ![alt text](1-8.png)
+
 Common in real-world NLP projects is a case of semi-supervised learning, where we have a small labeled dataset and a large unlabeled dataset. Semi-supervised techniques involve using both datasets to learn the task at hand. Last but not least, reinforcement learning deals with methods to learn tasks via trial and error and is characterized by the absence of either labeled or unlabeled data in large quantities.
 
 Any machine learning approach for NLP, supervised or unsupervised, can be described as consisting of three common steps: extracting features from text, using the feature representation to learn a model, and evaluating and improving the model.
@@ -38,6 +39,7 @@ Any machine learning approach for NLP, supervised or unsupervised, can be descri
 
  Language is inherently sequential. A sentence in any language flows from one direction to another (e.g., English reads from left to right). Thus, a model that can progressively read an input text from one end to another can be very useful for language understanding. Recurrent neural networks (RNNs) are specially designed to keep such sequential processing and learning in mind.
  ![alt text](1-13.png)
+
  RNNs are powerful and work very well for solving a variety of NLP tasks, such as text classification, named entity recognition, machine  translation, etc. One can also use RNNs to generate text where the goal is to read the preceding text and predict the next word or the next character.
 
 - Long Short-Term Memory
@@ -56,8 +58,10 @@ Transformers are the latest entry in the league of deep learning models for NLP.
 
 Recently, large transformers have been used for transfer learning with smaller downstream tasks. Transfer learning is a technique in AI where the knowledge gained while solving one problem is applied to a different but related problem. With transformers, the idea is to train a very large transformer mode in an unsupervised manner (known as pre-training) to predict a part of a sentence given the rest of the content so that it can encode the high level nuances of the language in it. These models are trained on more than 40 GB of textual data, scraped from the whole internet. An example of a large transformer is BERT (Bidirectional Encoder Representations from Transformers), shown in Figure 1-16, which is pre-trained on massive data and open sourced by Google.
 ![alt text](1-16.png)
+
 Due to the sheer amount of pre-trained knowledge, BERT works efficiently in transferring the knowledge for downstream tasks and achieves state of the art for many of these tasks.
 ![alt text](1-17.png)
+
 Figure 1-17 illustrates the workings of a selfattention mechanism, which is a key component of a transformer.
 
 - Autoencoders
@@ -102,8 +106,10 @@ Ali ve Veli bugün dışarıya çıktılar. Onlar güzel bir gün geçirdiler. B
 Paralelleşme problemini çözmek için Transformelar, dikkat modelleri ile birlikte CNN kullanarak sorunu çözmeye çalışırlar. Transformer, hızı arttırmak için dikkati kullanan bir modeldir. Daha spesifik olarak, öz-ilgiyi (self-attention) kullanır.
 Dahili olarak, Transformer yukarıdaki önceki modellerle benzer bir mimariye sahiptir. Ancak Transformer, altı kodlayıcı ve altı kod çözücüden oluşur.
 ![alt text](ek1.png)
+
 Her kodlayıcı birbirine çok benzer. Tüm kodlayıcılar aynı mimariye sahiptir. Kod çözücüler aynı özelliği paylaşırlar, yani birbirlerine çok benzerler. Her kodlayıcı iki katmandan oluşur: Öz-dikkat ve bir İleri Sinir Ağı beslemesi.
 ![alt text](ek2.png)
+
 Kodlayıcının girişleri önce bir öz-dikkat katmanından geçer. Kodlayıcının belirli bir kelimeyi kodlarken giriş cümlesindeki diğer kelimelere bakmasına yardımcı olur. Kod çözücü bu iki katmana da sahiptir, ancak aralarında kod çözücünün giriş cümlesinin ilgili kısımlarına odaklanmasına yardımcı olan bir dikkat katmanı vardır.
 ![alt text](ek3.png)
 
