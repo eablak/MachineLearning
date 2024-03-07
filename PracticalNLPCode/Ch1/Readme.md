@@ -1,4 +1,4 @@
-![!\[alt text\](1-3.png)](images/1-3.png)
+![asd](images/1-3.png)
 
 ### Phonemes
 
