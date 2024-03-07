@@ -3,6 +3,7 @@
 ### Phonemes
 
 Phonemes are the smallest units of sound in a language. They may not have any meaning by themselves but can induce meanings when uttered in combination with other phonemes.
+
 ![alt text](1-4.png)
 
 ### Morphemes (anlambirim) and Lexemes (sözcükbirim)
@@ -69,7 +70,7 @@ EK!
 **Transformerlar Nasıl Çalışır?**
 Transformerler, dizi iletimi veya sinirsel makine çevirisi sorununu çözmek için geliştirildi. Bu, bir giriş dizisini bir çıktı dizisine dönüştüren herhangi bir görev anlamına gelir. Buna konuşma tanıma, metinden konuşmaya dönüştürme vb. dahildir.
 
-Esra ve Gizem bugün dışarıya çıktılar. Onlar güzel bir gün geçirdiler. Bu cümlede geçen ”onlar” kelimesi Esra ve Gizem’e atıfta bulunmaktadır. Böyle cümleleri çevirmek için, bir modelin bağımlılıkları ve bağlantıları bulunması gerekir. → RNN ve CNN bunun için!
+Ali ve Veli bugün dışarıya çıktılar. Onlar güzel bir gün geçirdiler. Bu cümlede geçen ”onlar” kelimesi Ali ve Veli’ye atıfta bulunmaktadır. Böyle cümleleri çevirmek için, bir modelin bağımlılıkları ve bağlantıları bulunması gerekir. → RNN ve CNN bunun için!
 
     - RNN
         
