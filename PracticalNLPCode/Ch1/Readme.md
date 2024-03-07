@@ -4,20 +4,20 @@
 
 Phonemes are the smallest units of sound in a language. They may not have any meaning by themselves but can induce meanings when uttered in combination with other phonemes.
 
-![alt text](1-4.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-4.png)
 
 ### Morphemes (anlambirim) and Lexemes (sözcükbirim)
 
 A morpheme is the smallest unit of language that has a meaning. It is formed by a combination of phonemes. Not all morphemes are words, but all prefixes and suffixes are morphemes. For example, in the word “multimedia,” “multi-” is not a word but a prefix that changes the meaning when put together with “media.” “Multi-” is a morpheme.
 
 For words like “cats” and “unbreakable,” their morphemes are just constituents of the full word, whereas for words like “tumbling” and “unreliability,” there is some variation when breaking the words down into their morphemes.
-![alt text](1-5.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-5.png)
 Lexemes are the structural variations of morphemes related to one another by meaning. For example, “run” and “running” belong to the same lexeme form.
 
 ### Syntax
 
 Syntax is a set of rules to construct grammatically correct sentences out of words and phrases in a language. Syntactic structure in linguistics is represented in many different ways. A common approach to representing sentences is a parse tree.
-![alt text](1-6.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-6.png)
 
 ### Context
 
@@ -27,7 +27,7 @@ Context is how various parts in a language come together to convey a particular 
 
 ### Machine Learning, Deep Learning, and NLP: An Overview
 
-![alt text](1-8.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-8.png)
 
 Common in real-world NLP projects is a case of semi-supervised learning, where we have a small labeled dataset and a large unlabeled dataset. Semi-supervised techniques involve using both datasets to learn the task at hand. Last but not least, reinforcement learning deals with methods to learn tasks via trial and error and is characterized by the absence of either labeled or unlabeled data in large quantities.
 
@@ -38,36 +38,36 @@ Any machine learning approach for NLP, supervised or unsupervised, can be descri
 - Recurrent Neural Network (RNN)
 
  Language is inherently sequential. A sentence in any language flows from one direction to another (e.g., English reads from left to right). Thus, a model that can progressively read an input text from one end to another can be very useful for language understanding. Recurrent neural networks (RNNs) are specially designed to keep such sequential processing and learning in mind.
- ![alt text](1-13.png)
+ ![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-13.png)
 
  RNNs are powerful and work very well for solving a variety of NLP tasks, such as text classification, named entity recognition, machine  translation, etc. One can also use RNNs to generate text where the goal is to read the preceding text and predict the next word or the next character.
 
 - Long Short-Term Memory
 
 Despite their capability and versatility, RNNs suffer from the problem of forgetful memory—they cannot remember longer contexts and therefore do not perform well when the input text is long, which is typically the case with text inputs. Long short-term memory networks (LSTMs), a type of RNN, were invented to mitigate this shortcoming of the RNNs. LSTMs circumvent this problem by letting go of the irrelevant context and only remembering the part of the context that is needed to solve the task at hand. This relieves the load of remembering very long context in one vector representation.
-![alt text](1-14.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-14.png)
 
 - Convolutional Neural Networks
 
 CNNs have also seen success in NLP, especially in text-classification tasks. One can replace each word in a sentence with its corresponding word vector, and all vectors are of the same size (d) (refer to “Word Embeddings) ”.  Thus, they can be stacked one over another to form a matrix or 2D array of dimension n ✕ d, where n is the number of words in the sentence and d is the size of the word vectors. This matrix can now be treated similar to an image and can be modeled by a CNN. The main advantage CNNs have is their ability to look at a group of words together using a context window.
-![alt text](1-15.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-15.png)
 
 - Transformers
 
 Transformers are the latest entry in the league of deep learning models for NLP. They model the textual context but not in a sequential manner. Given a word in the input, it prefers to look at all the words around it (known as selfattention) and represent each word with respect to its context.
 
 Recently, large transformers have been used for transfer learning with smaller downstream tasks. Transfer learning is a technique in AI where the knowledge gained while solving one problem is applied to a different but related problem. With transformers, the idea is to train a very large transformer mode in an unsupervised manner (known as pre-training) to predict a part of a sentence given the rest of the content so that it can encode the high level nuances of the language in it. These models are trained on more than 40 GB of textual data, scraped from the whole internet. An example of a large transformer is BERT (Bidirectional Encoder Representations from Transformers), shown in Figure 1-16, which is pre-trained on massive data and open sourced by Google.
-![alt text](1-16.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-16.png)
 
 Due to the sheer amount of pre-trained knowledge, BERT works efficiently in transferring the knowledge for downstream tasks and achieves state of the art for many of these tasks.
-![alt text](1-17.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-17.png)
 
 Figure 1-17 illustrates the workings of a selfattention mechanism, which is a key component of a transformer.
 
 - Autoencoders
 
 An autoencoder is a different kind of network that is used mainly for learning compressed vector representation of the input. For example, if we want to represent a text by a vector, what is a good way to do it? We can learn a mapping function from input text to the vector. To make this mapping function useful, we “reconstruct” the input back from the vector representation. This is a form of unsupervised learning since you don’t need human-annotated labels for it. After the training, we collect the vector representation, which serves as an encoding of the input text as a dense vector. Autoencoders are typically used to create feature representations needed for any downstream tasks.
-![alt text](1-18.png)
+![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/1-18.png)
 
 EK!
 
@@ -105,13 +105,12 @@ Ali ve Veli bugün dışarıya çıktılar. Onlar güzel bir gün geçirdiler. B
 
 Paralelleşme problemini çözmek için Transformelar, dikkat modelleri ile birlikte CNN kullanarak sorunu çözmeye çalışırlar. Transformer, hızı arttırmak için dikkati kullanan bir modeldir. Daha spesifik olarak, öz-ilgiyi (self-attention) kullanır.
 Dahili olarak, Transformer yukarıdaki önceki modellerle benzer bir mimariye sahiptir. Ancak Transformer, altı kodlayıcı ve altı kod çözücüden oluşur.
-![alt text](ek1.png)
+![alt text](https://jalammar.github.io/images/t/The_transformer_encoder_decoder_stack.png)
 
 Her kodlayıcı birbirine çok benzer. Tüm kodlayıcılar aynı mimariye sahiptir. Kod çözücüler aynı özelliği paylaşırlar, yani birbirlerine çok benzerler. Her kodlayıcı iki katmandan oluşur: Öz-dikkat ve bir İleri Sinir Ağı beslemesi.
-![alt text](ek2.png)
 
 Kodlayıcının girişleri önce bir öz-dikkat katmanından geçer. Kodlayıcının belirli bir kelimeyi kodlarken giriş cümlesindeki diğer kelimelere bakmasına yardımcı olur. Kod çözücü bu iki katmana da sahiptir, ancak aralarında kod çözücünün giriş cümlesinin ilgili kısımlarına odaklanmasına yardımcı olan bir dikkat katmanı vardır.
-![alt text](ek3.png)
+![alt text](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff3ef6000-bcc9-47bc-9abe-c8372c469fd6_879x279.png)
 
 !EK
 - **What is Pre-Training in NLP?**
