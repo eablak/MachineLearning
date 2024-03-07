@@ -37,7 +37,9 @@ When we’re working on developing NLP tools to work with such data, it’s usef
 
 Code mixing refers to this phenomenon of switching between languages.
 
+
 __Advanced processing__
+
 POS tagging, parsing, coreference resolution, etc.
 
 ![alt text](https://raw.githubusercontent.com/practical-nlp/practical-nlp-figures/master/figures/2-10.png)
