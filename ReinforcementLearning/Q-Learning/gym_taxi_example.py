@@ -5,6 +5,31 @@ Created on Sun Feb 25 14:35:17 2024
 @author: esraablak
 """
 
+"""
+    GYM TAXI
+
+* Environment - agent
+* State, action, reward
+* Pick up the passenger at one location and drop them off in another
+    - Drop off the passenger to the right location
+    - Save passenger's time by taking minimum time possible to drop off
+
+=> Gym Taxi: State
+    -> 5x5 = 25 grid
+    -> 4 locations that we can pick up and drop off a passenger: R, G, Y, B
+    -> The agent encounters on of the 500 states and it takes an action. 5*5*5*4= 500
+ 
+=> Gym Taxi: Action
+    -> Action in our casre can be to move in a direction or decide to pickup/dropoff a passenger.
+    -> Action Space: south, north, east, west, pickup, dropoff
+
+=> Gym Taxi: Reward
+    -> Positive reward for a successful dropoff(+20)
+    -> Negative reward for a wrong dropoff(-10)
+    -> Slight negative reward every time-step(-1)
+    -> Each successfull dropoff is the and of an episode
+"""
+
 import gym
 
 env = gym.make("Taxi-v3").env
