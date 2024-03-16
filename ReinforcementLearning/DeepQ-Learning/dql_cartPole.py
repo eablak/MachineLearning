@@ -95,7 +95,7 @@ if __name__ == "__main__":
         
         # initalize environment
         state = env.reset()
-        state = state[0]
+        #state = state[0]
         state = np.reshape(state,[1,4])
         
         time = 0 # living penalty
@@ -105,7 +105,7 @@ if __name__ == "__main__":
             action = agent.act(state) # select and action
             
             # process / step
-            next_state, reward, done, info, _ = env.step(action)
+            next_state, reward, done, _ = env.step(action)
             next_state = np.reshape(next_state, [1,4])
             
             
