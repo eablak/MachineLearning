@@ -272,7 +272,7 @@ class Env(pygame.sprite.Sprite):
             # process input
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False # sadece döngüden çıkarsın. initalize ettiğin game'i kapat
+                    running = False
                 
             # update
             action = self.agent.act(state)
