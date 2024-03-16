@@ -263,7 +263,7 @@ class Env(pygame.sprite.Sprite):
         running = True
         batch_size = 24
         
-        while True:
+        while running:
             self.reward = 2
             
             # keep loop running at the right speed
