@@ -70,44 +70,6 @@ while running:
     screen.fill(GREEN)
     
     # after drawing / flip display
-    pygame.display.flip() # bunu yapmazsan boyaman çıkmaz
+    pygame.display.flip() # boyadığını göster
 
 pygame.quit()
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
