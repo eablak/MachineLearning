@@ -41,6 +41,10 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import Adam
 
+from keras.models import load_model
+import pickle
+import asyncio
+
 # window size
 WIDTH = 360
 HEIGHT = 360
@@ -136,15 +140,18 @@ class DQLAgent:
         self.epsilon_min = 0.01
         
         self.memory = deque(maxlen=1000)
-        
+        self.model_path = "kayit.keras"
         self.model = self.build_model()
+        
         
     def build_model(self):
         
+        global model
         model = Sequential()
         model.add(Dense(48, input_dim=self.state_size, activation="relu"))
         model.add(Dense(self.action_size, activation="linear"))
         model.compile(loss="mse", optimizer=Adam(learning_rate=self.learning_rate))
+        
         return model
     
     def remember(self, state, action, reward, next_state, done):
@@ -173,6 +180,13 @@ class DQLAgent:
             train_target = self.model.predict(state)
             train_target[0][action] = target
             self.model.fit(state, train_target, verbose=0)
+            
+    def load_saved_model(self):
+        self.model = load_model("rl_game.keras")
+        # self.model.compile(loss="mse", optimizer=Adam(learning_rate=self.learning_rate))
+
+    def save_model(self):
+        model.save("rl_game.keras")
     
     def adaptiveEGreedy(self):
         if self.epsilon > self.epsilon_min:
@@ -294,7 +308,13 @@ class Env(pygame.sprite.Sprite):
             state = next_state
             
             # replay
-            self.agent.replay(batch_size)
+            #self.agent.replay(batch_size)
+
+            # save model
+            # self.agent.save_model()
+
+            # load model
+            self.agent.load_saved_model()
             
             # epsilon greedy
             self.agent.adaptiveEGreedy()
@@ -307,21 +327,22 @@ class Env(pygame.sprite.Sprite):
 
     pygame.quit()
 
+env = Env()
+liste = []
+t = 0
+episodes = 1
+for episode in range(episodes):
 
+    t += 1
+    print("Episode: ",t)
+    liste.append(env.total_reward)
 
-if __name__ == "__main__":
-    env = Env()
-    liste = []
-    t = 0
-    while True:
-        t += 1
-        print("Episode: ",t)
-        liste.append(env.total_reward)
+    # initalize pygame and create window
+    pygame.init()
+    screen = pygame.display.set_mode((WIDTH,HEIGHT))
+    pygame.display.set_caption("RL Game")
+    clock = pygame.time.Clock()
+    
+    env.run()
 
-        # initalize pygame and create window
-        pygame.init()
-        screen = pygame.display.set_mode((WIDTH,HEIGHT))
-        pygame.display.set_caption("RL Game")
-        clock = pygame.time.Clock()
-        
-        env.run()
+    pygame.display.quit()
